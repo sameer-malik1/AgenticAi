@@ -1,6 +1,10 @@
 from crewai.flow.flow import Flow, start, listen
 from litellm import completion
 import logging
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Configure logging
 logging.basicConfig(
@@ -10,7 +14,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-GOOGLE_API_KEY = "AIzaSyB9ZDMuWLa5-Xnir5pJeqMoTw790vO9TcE"
+GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 
 class BasicFlow(Flow):
     def __init__(self):
